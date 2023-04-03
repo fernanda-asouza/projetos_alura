@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+  </head>
+  <body>
+    <h1>Quiz</h1>
+    <p>Qual é a capital do Brasil?</p>
+    <form id="quiz-form">
+      <input type="radio" id="opcao1" name="opcao" value="errada">
+      <label for="opcao1">Rio de Janeiro</label><br>
+      <input type="radio" id="opcao2" name="opcao" value="errada">
+      <label for="opcao2">São Paulo</label><br>
+      <input type="radio" id="opcao3" name="opcao" value="certa">
+      <label for="opcao3">Brasília</label><br><br>
+      <button type="submit">Responder</button>
+    </form>
+    <p id="resultado"></p>
+    <script src="quiz.js"></script>
+  </body>
+</html>
+
+
+<script>
+const form = document.getElementById('quiz-form');
+const resultado = document.getElementById('resultado');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const resposta = form.opcao.value;
+  if (resposta == 'certa') {
+    resultado.textContent = 'Resposta correta!';
+  } else {
+    resultado.textContent = 'Resposta incorreta. Tente novamente.';
+  }
+});
+
+
+</script>
